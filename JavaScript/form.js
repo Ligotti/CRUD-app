@@ -14,6 +14,25 @@ function showAlert(message, className){
 
 }
 
+function clearFields(){
+    document.querySelector("#firstName").value = "";
+    document.querySelector("#licName").value = "";
+    document.querySelector("#rollNo").value = "";
+}
+
+document.querySelector("#student-form").addEventListener("submit", (e) =>{
+    e.preventDefault();
+
+    const firstName = document.querySelector("#firstName").value;
+    const licName = document.querySelector("#licName").value;
+    const rollNo = document.querySelector("#rollNo").value;
+
+    if(firstName == "" || licName == "" || rollNo == ""){
+        showAlert("Por favor rellene todos los cuadros", "danger");
+    }
+
+});
+
 document.querySelector("#student-list").addEventListener("click", (e) =>{
     target = e.target;
     if(target.classList.contains("delete")){
